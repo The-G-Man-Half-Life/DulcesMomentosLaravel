@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\RolesController;
@@ -8,7 +9,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//statuses routes
+//roles routes
 
 Route::get('/roles', [RolesController::class, 'index'])->name('roles.index');
 
@@ -41,3 +42,19 @@ Route::get('/statuses/{id}/edit', [StatusController::class, 'edit'])->name('stat
 Route::put('/statuses/{id}', [StatusController::class, 'update'])->name('statuses.update');
 
 Route::delete('/statuses/{id}', [StatusController::class, 'destroy'])->name('statuses.destroy');
+
+//product routes
+
+Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
+
+Route::get('/products/create', [ProductsController::class, 'create'])->name('products.create');
+
+Route::post('/products', [ProductsController::class, 'store'])->name('products.store');
+
+Route::get('/products/{id}', [ProductsController::class, 'show'])->name('products.show');
+
+Route::get('/products/{id}/edit', [ProductsController::class, 'edit'])->name('products.edit');
+
+Route::put('/products/{id}', [ProductsController::class, 'update'])->name('products.update');
+
+Route::delete('/products/{id}', [ProductsController::class, 'destroy'])->name('products.destroy');
