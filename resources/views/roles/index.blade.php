@@ -27,7 +27,7 @@
                     <td>
                         <a href="{{ route('roles.show', $role->id) }}" class="btn btn-info btn-sm">View</a>
                         <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="{{ route('roles.destroy', $role->id) }}" method="POST" style="display: inline;">
+                        <form action="{{ route('roles.destroy', $role->id) }}" onsubmit="return confirm('Are you sure you want to delete this role?'); method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
